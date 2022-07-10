@@ -1,3 +1,23 @@
-h1{
+h1 {
     text-align: center;
+}
+body {
+        font-family: Arial, Helvetica, sans-serif;
+    }
+.container{
+    
+}
+.weather {
+    border: 1px solid gray;
+    border-radius: 6px;
+    background-color: #EBEBEB;
+    padding: 30px;
+
+}
+.material-symbols-outlined {
+    color: orange;
+  }
+.all{
+    max-width: 50%;
+    margin: 50px auto;
 }
