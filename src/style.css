@@ -3,21 +3,20 @@ h1 {
 }
 body {
         font-family: Arial, Helvetica, sans-serif;
+        background-color: gray;
     }
-.container{
-    
-}
 .weather {
     border: 1px solid gray;
     border-radius: 6px;
-    background-color: #EBEBEB;
     padding: 30px;
 
 }
-.material-symbols-outlined {
-    color: orange;
-  }
 .all{
     max-width: 50%;
     margin: 50px auto;
+}
+.units {
+    font-size: small;
+    position: relative;
+    bottom: 13px;
 }
