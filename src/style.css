@@ -4,6 +4,9 @@ h1 {
 h4{
     text-transform: capitalize;
 }
+.updates{
+    color: #AEAEAF;
+}
 .weather {
     border: 1px solid gray;
     border-radius: 6px;
@@ -18,4 +21,8 @@ h4{
     font-size: small;
     position: relative;
     bottom: 13px;
+}
+.updates{
+    position: relative;
+    top: 15px;
 }
