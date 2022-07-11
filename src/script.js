@@ -57,3 +57,13 @@ function handleSubmit(event) {
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+function displayFahrenheitTemperature(event) {
+  event.preventDefault();
+  let Fahrenheit = (0 * 9)/ 5 + 32:
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(Fahrenheit);
+} 
+
+let fahrenheitLink = document.querySelector("#Fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
