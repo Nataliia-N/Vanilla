@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css">
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
@@ -14,8 +15,8 @@
     <div class="weather">        
                 <div class="row">
                     <div class="col-4">
-                        <h2>21 <span class="units">°C | <a href="">°F</a></span></h2>
-                        <h4>Cloudy</h4>
+                        <h2><span id="temperature">21</span><span class="units">°C | <a href="">°F</a></span></h2>
+                        <h4 id="description">Cloudy</h4>
                             <div class="clearfix">
                             <img src="https://cdn.dribbble.com/users/2120934/screenshots/6193524/19_mostlysunny.gif" alt="sunny" class="float-left" height="100px">
                             </div>
@@ -24,13 +25,13 @@
                     <div class="col-4">
                         <span>precipitation: 9 %</span>
                         <br>
-                        <span>humidity: 78 %</span>
+                        <span>humidity: <span id="humidity">78</span> %</span>
                         <br>
-                        <span>wind: 2 km/h</span>
+                        <span> wind: <span id="wind">2</span> km/h</span>
                     </div>
                     <div class="col-4">
-                        <h2 class="city">Chernihiv, UA</h2>
-                        <h5> Friday 21:00</h5>
+                        <h2><span id="city">Chernihiv</span>, UA</h2>
+                        <h5 id="date">Friday 21:00</h5>
                     </div>
                 </div>
     </div>    
