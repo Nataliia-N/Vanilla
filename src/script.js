@@ -19,8 +19,8 @@ function formatDate(timestamp) {
       if (hours < 10) {
         hours = `0${hours}`
       }
-    
-    return `${day} ${hours}:${minutes}`;
+     let formattedDate =`${day} ${hours}:${minutes}`;
+     return formattedDate;
 
 }
 function displayTemperature(response){
@@ -36,6 +36,9 @@ function displayTemperature(response){
     windElement.innerHTML = Math.round(response.data.wind.speed);
     let dateElement = document.querySelector("#date");
     dateElement.innerHTML = formatDate(response.data.dt * 1000);
+    let iconElement = document.querySelector("#icon");
+    iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
+    iconElement.setAttribute("alt", response.data.weather[0].description);
 }
 let apiKey = "e9e196ee12c6e5ec0599f3bdf6ebd323";
 let city = "London";
