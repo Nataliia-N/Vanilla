@@ -19,3 +19,11 @@ h4{
     position: relative;
     bottom: 13px;
 }
+.date {
+    position: relative;
+    top: 20px;
+    color: gray;
+}
+.description {
+    color: gray;
+}
