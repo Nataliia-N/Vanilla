@@ -1,4 +1,32 @@
+function displayForecast () {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHtml = `<div class="row">`;
+  let days = [
+    "Tu",
+    "We",
+    "Th",
+    "Fr",
+    "Sa"
+  ];
+  days.forEach(function(day) {
+  forecastHtml = forecastHtml + `
+      <div class="col-2">
+          <div class="weather-forecast-date">
+          ${day}
+          </div>
+      <img src="https://cdn.dribbble.com/users/2120934/screenshots/6193524/19_mostlysunny.gif" alt="" id="icon" height="40px">
+          <div class="weather-forecast-temperature">18 <span class="weather-forecast-temperature-min"> 10</span> 
+          </div>
+      </div>
+`;
+  }
+  );
 
+forecastHtml = forecastHtml + `</div>`;
+  forecastElement.innerHTML = forecastHtml;
+}
+
+displayForecast();
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
