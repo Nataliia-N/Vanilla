@@ -1,21 +1,15 @@
-function displayForecast () {
+function displayForecast (response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHtml = `<div class="row">`;
-  let days = [
-    "Tu",
-    "We",
-    "Th",
-    "Fr",
-    "Sa"
-  ];
-  days.forEach(function(day) {
+  forecast.forEach(function(forecastDay) {
   forecastHtml = forecastHtml + `
       <div class="col-2">
           <div class="weather-forecast-date">
-          ${day}
+          ${forecastDay.dt}
           </div>
-      <img src="https://cdn.dribbble.com/users/2120934/screenshots/6193524/19_mostlysunny.gif" alt="" id="icon" height="40px">
-          <div class="weather-forecast-temperature">18 <span class="weather-forecast-temperature-min"> 10</span> 
+      <img src="https://openweathermap.org/img/wn/${forecastDay.weather[0].icon}@2x.png" alt="" id="icon" height="40px">
+          <div class="weather-forecast-temperature">${Math.round(forecastDay.temp.max)} ℃ /<span class="weather-forecast-temperature-min">${Math.round(forecastDay.temp.min)} ℃</span> 
           </div>
       </div>
 `;
@@ -26,7 +20,6 @@ forecastHtml = forecastHtml + `</div>`;
   forecastElement.innerHTML = forecastHtml;
 }
 
-displayForecast();
 function formatDate(timestamp) {
     let date = new Date(timestamp);
     let hours = date.getHours();
@@ -49,8 +42,14 @@ function formatDate(timestamp) {
       }
      let formattedDate =`${day} ${hours}:${minutes}`;
      return formattedDate;
-
 }
+
+function getForecast(coordinates) {
+  let apiKey = "e9e196ee12c6e5ec0599f3bdf6ebd323";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemperature(response){
     celsiusTemperature = Math.round(response.data.main.temp);
     let temperatureElement = document.querySelector("#temperature");
@@ -68,6 +67,7 @@ function displayTemperature(response){
     let iconElement = document.querySelector("#icon");
     iconElement.setAttribute("src", `https://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
     iconElement.setAttribute("alt", response.data.weather[0].description);
+    getForecast(response.data.coord);
 
 }
 
@@ -109,3 +109,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Lisbon");
+
